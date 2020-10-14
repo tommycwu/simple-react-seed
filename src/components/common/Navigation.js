@@ -20,9 +20,10 @@ export default class Navigation extends React.Component{
           </div>
           <div className="navbar-collapse collapse">
             <ul className="nav navbar-nav navbar-right smooth-scroll">
-              <li><Link to="/">Home</Link></li>
-              <li><Link to="about">About</Link></li>
-              <li><Link to="contact">Contact</Link></li>
+              <li><Link to="/"><span>Home</span></Link></li>
+              <li><Link to="about"><span>About</span></Link></li>
+              <li><Link to="contact"><span>Contact</span></Link></li>
+              <li><Link to="login"><span>Login</span></Link></li>
             </ul>
           </div>
         </div>
