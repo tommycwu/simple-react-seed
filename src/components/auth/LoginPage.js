@@ -22,8 +22,6 @@ export default class LoginPage extends React.Component{
     this.widget.session.get((response) => {
       if(response.status !== 'INACTIVE'){
         this.setState({user:response.login});
-        this.setState({user:response.claims});
-        this.setState({user:response.id_token})
       }else{
         this.showLogin();
       }
@@ -35,6 +33,7 @@ export default class LoginPage extends React.Component{
     this.widget.renderEl({el:this.loginContainer},
       (response) => {
         this.setState({user:response.claims.email});
+        
       },
       (err) => {
         console.log(err);
@@ -56,9 +55,8 @@ export default class LoginPage extends React.Component{
         {this.state.user ? (
           <div className="container">
             <div>Welcome, {this.state.user}!</div>
-            <div>email: {this.state.claims.email}</div>
-            <div>email: {this.state.claims}</div>
-            <button onClick={this.logout}>Logout</button>
+            <div>email: {this.state.user.email}</div>
+             <button onClick={this.logout}>Logout</button>
           </div>
         ) : null}
         {this.state.user ? null : (
